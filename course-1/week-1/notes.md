@@ -34,3 +34,25 @@
 - AI/ML is estimated to create $13 trillion in annual value by 2030, with massive untapped opportunities outside the software industry (e.g., manufacturing, agriculture, healthcare, retail)
 - The next video will introduce formal definitions of Machine Learning and cover the main categories of learning algorithms
 
+## Video 1.3: What is machine learning ?
+
+### Key Concepts
+- Machine Learning (Arthur Samuel): The field of study that gives computers the ability to learn without being explicitly programmed.
+- Supervised Learning: The most widely used type of machine learning in real-world applications, driving the most rapid innovation today.
+- Unsupervised Learning: A major category of ML algorithms designed to find structure or patterns in data without explicit labels.
+- Overview of major ML categories (Supervised, Unsupervised, Recommender Systems, Reinforcement Learning)
+
+### Topics Covered
+- Definition of Machine Learning (Arthur Samuel's informal definition)
+- Historical case study: Arthur Samuel's Checkers program (1950s)
+- Structure of the Specialization
+- The critical importance of practical skills and implementation best practices
+
+### Notes
+- Arthur Samuel’s checkers program learned by playing tens of thousands of games against itself; over time, it surpassed human skills, demonstrating that more training data/experience leads to better performance.
+- The Specialization breakdown: Courses 1 & 2 cover Supervised Learning, while Course 3 focuses on Unsupervised Learning, Recommender Systems, and Reinforcement Learning.
+- Having the ML tools is not enough—knowing how to apply best practices effectively is what separates top engineers from teams that spend months pursuing ineffective approaches.
+- The next video will cover formal definitions and applications of Supervised Learning and Unsupervised Learning.
+
+
+
