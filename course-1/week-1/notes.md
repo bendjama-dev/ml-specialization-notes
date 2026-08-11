@@ -54,5 +54,23 @@
 - Having the ML tools is not enough—knowing how to apply best practices effectively is what separates top engineers from teams that spend months pursuing ineffective approaches.
 - The next video will cover formal definitions and applications of Supervised Learning and Unsupervised Learning.
 
+## Video 1.4: Supervised Learning (Regression vs. Classification)
+
+### Key Concepts
+- Supervised Learning: Algorithms that learn to map inputs (X) to correct outputs (Y) using labeled training data.
+- Regression: A supervised learning task that predicts a continuous numerical value from an infinite range (e.g., house prices).
+- Classification: A supervised learning task that predicts discrete categories or classes from a small, finite set (e.g., benign vs. malignant).
+
+### Topics Covered
+- Definition and core objective of Supervised Learning
+- Regression vs. Classification output types
+- Handling single vs. multiple input features (e.g., tumor size and patient age)
+- Decision boundaries in classification problems
+
+### Notes
+- Supervised learning relies on labeled data, where each input example is paired with its target output or label
+- Regression outputs can be any number along a continuum, whereas classification outputs are restricted to specific, discrete categories
+- Classification is not limited to binary outcomes (e.g., O or 1); it can handle multi-class predictions, with outputs being numeric or non-numeric categories.
+- The next video will explore Unsupervised Learning and how algorithms find patterns in unlabeled data.
 
 
