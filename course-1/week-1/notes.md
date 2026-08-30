@@ -73,4 +73,24 @@
 - Classification is not limited to binary outcomes (e.g., O or 1); it can handle multi-class predictions, with outputs being numeric or non-numeric categories.
 - The next video will explore Unsupervised Learning and how algorithms find patterns in unlabeled data.
 
+## Video 1.5: Supervised Learning Part 2
+
+### Key Concepts
+- Classification: A supervised learning task where the algorithm predicts a discrete category or class rather than a continuous number.
+- Output Classes / Categories: Interchangeable terms referring to the discrete set of target labels (Y).
+- Decision Boundary: A line or hyper-plane fitted by the learning algorithm to separate distinct categories in the feature space.
+
+### Topics Covered
+- Definition of Classification in supervised learning
+- Binary vs. Multi-class classification (e.g., benign vs. malignant, or identifying specific cancer types)
+- Differences between continuous regression targets and discrete classification outputs
+- Utilizing multiple input features such as tumor size, patient age, cell thickness, and shape uniformity
+
+### Notes
+- Supervised learning relies on explicit input-to-output (X \to Y) mappings trained using datasets with correct target labels ("right answers").
+- Regression predicts numbers from an infinitely continuous spectrum, whereas classification predicts values from a small, finite set of discrete categories.
+- Classification categories can be non-numeric (e.g., cat vs. dog) or numeric (e.g., 0, 1, 2), but intermediate fractional outputs (e.g., 0.5, 1.7) are not valid class predictions.
+- Complex real-world models scale by incorporating dozens or hundreds of input features to fit accurate decision boundaries for medical diagnoses and predictions.
+- The next video will cover Unsupervised Learning, the second major paradigm of machine learning algorithms.
+
 
