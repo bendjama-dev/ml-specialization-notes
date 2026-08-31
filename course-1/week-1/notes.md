@@ -93,4 +93,185 @@
 - Complex real-world models scale by incorporating dozens or hundreds of input features to fit accurate decision boundaries for medical diagnoses and predictions.
 - The next video will cover Unsupervised Learning, the second major paradigm of machine learning algorithms.
 
+## Video 1.6: Unsupervised Learning
 
+### Key Concepts
+
+* Unsupervised Learning: Learning algorithms provided with unlabeled data ($X$ only, without target outputs $Y$) to discover structure, patterns, or interesting groupings independently.
+* Clustering: An unsupervised learning method that automatically places unlabeled data points into distinct groups or clusters based on shared features or similarity.
+* Market Segmentation: An application of clustering used by organizations to group individuals (or customers) into categories based on shared characteristics or behaviors.
+
+### Topics Covered
+
+* Supervised vs. Unsupervised Learning data structures (labeled $Y$ targets vs. unlabeled raw features)
+* Clustering algorithms and how they work without human supervision
+* Real-world applications of clustering:
+* **Google News**: Grouping hundreds of thousands of daily news articles by topic using shared keywords (e.g., panda, twin, zoo).
+* **DNA Microarray Data**: Grouping individuals into genetic types/categories based on gene expression levels.
+* **Market Segmentation**: Grouping learners in the DeepLearning.AI community based on their primary motivations (e.g., skill growth, career progression, staying updated).
+
+
+
+### Notes
+
+* Unlike supervised learning, there are no predefined "right answers" or manual labels given to the algorithm; it must analyze feature relationships autonomously.
+* News topics and patterns change constantly, making manual supervision impractical and necessitating unsupervised techniques.
+* The next video will explore additional types of unsupervised learning algorithms beyond clustering.
+
+
+## Video 1.7: Unsupervised Learning Part 2
+
+### Key Concepts
+
+* Unsupervised Learning Definition: Algorithms supplied only with input features ($X$) without output labels ($Y$), tasked with discovering underlying patterns, structures, or anomalies autonomously.
+* Anomaly Detection: An unsupervised learning technique used to identify unusual patterns or outlier events that deviate significantly from expected norms.
+* Dimensionality Reduction: A technique used to compress large datasets into lower-dimensional representations while preserving as much critical information as possible.
+
+### Topics Covered
+
+* Formal distinction between supervised ($X \to Y$) and unsupervised ($X$ only) learning
+* Overview of key unsupervised learning techniques beyond clustering (Anomaly Detection and Dimensionality Reduction)
+* Practice quiz & classification of ML problem types (Spam filtering, News grouping, Market segmentation, Diabetes diagnosis)
+* Introduction to upcoming practical tools (Jupyter Notebooks)
+
+### Notes
+
+* **Anomaly Detection** is heavily utilized in financial systems for fraud detection by highlighting unusual transaction behaviors.
+* **Dimensionality Reduction** enables high-dimensional data compression with minimal information loss.
+* Practice Quiz Categorization:
+* **Supervised Learning**: Spam filtering (labeled spam/non-spam) and Diabetes diagnosis (labeled target outcomes, similar to tumor classification).
+* **Unsupervised Learning**: Google News story grouping and Market segmentation (discovering natural groupings without prior labels).
+
+
+* Course Roadmap: Course 3 of the specialization will cover Clustering, Anomaly Detection, and Dimensionality Reduction in detail.
+* The next video will introduce **Jupyter Notebooks** and how they are used for hands-on machine learning development.
+
+
+## Video 1.8: Jupyter Notebooks Preview
+
+### Key Concepts
+
+* Jupyter Notebook: The standard, widely used interactive coding environment in AI, machine learning, and data science for experimenting and prototyping.
+* Markdown Cells: Text cells formatted with Markdown used to document explanations, theories, and instructions alongside code.
+* Code Cells: Executable Python code blocks that can be run interactively within the browser.
+
+### Topics Covered
+
+* Introduction to Jupyter Notebooks as the primary environment for the course
+* Distinction between **Optional Labs** (pre-written code to explore without grading) and **Practice Labs** (hands-on coding assignments starting in Week 2)
+* Notebook mechanics: navigating cells, editing text/code, and executing cells using `Shift` + `Enter`
+
+### Notes
+
+* Notebooks used in the course are real industry-standard environments—the same tools utilized by machine learning engineers in major tech companies.
+* Optional labs are ungraded and designed for quick execution line-by-line to help build intuition for ML code structures.
+* Practical tip: Select a cell, predict its output, press `Shift` + `Enter` to execute, and experiment by modifying code snippets to observe changed behavior.
+* Next week introduces formal mathematical formulations of supervised learning algorithms along with hands-on practice labs.
+
+## Video 1.9: Linear Regression Model Part 1
+
+### Key Concepts
+
+* Linear Regression: A supervised learning model that predicts numerical outputs by fitting a straight line to training data.
+* Training Set: The dataset used to train a machine learning algorithm to learn patterns and make predictions.
+* Feature ($x$): The input variable used to make a prediction (e.g., house size in square feet).
+* Target ($y$): The output variable that the algorithm tries to predict (e.g., house price).
+
+### Topics Covered
+
+* Overview of linear regression through a housing price prediction example
+* Standard mathematical notation for machine learning datasets
+* Differences between continuous numerical outputs (regression) and discrete categorical outputs (classification)
+
+### Standard Notation Summary
+
+* $x$: Input feature / variable
+* $y$: Output variable / target variable
+* $m$: Total number of training examples (e.g., $m = 47$)
+* $(x, y)$: A single training example
+* $(x^{(i)}, y^{(i)})$: The $i$-th training example, where the superscript $(i)$ represents the row index in the dataset (not an exponent)
+
+### Notes
+
+* Supervised learning algorithms learn from datasets where the target outputs ("right answers") are already known.
+* Linear regression models can output any number along a continuous scale, unlike classification models which are restricted to a finite, discrete set of classes.
+* The superscript $(i)$ is used as an index for specific dataset rows (e.g., $x^{(1)} = 2104$ for the first house size) and does not denote mathematical exponentiation.
+* The next video will cover how to feed this training set into a learning algorithm to train a model to make predictions.
+
+  # Video 1.10: Linear Regression Model Part 2
+
+### Key Concepts
+
+* **Function / Model ($f$)**: The function generated by the learning algorithm that maps input features ($x$) to predicted outputs ($\hat{y}$). Historically referred to as a hypothesis.
+* **Prediction / Estimate ($\hat{y}$)**: The estimated value of $y$ produced by the model (read as "y-hat"), as opposed to the actual true target value $y$.
+* **Univariate Linear Regression**: Linear regression with a single input variable or feature ($x$). "Uni" means one, and "variate" means variable.
+* **Parameters ($w, b$)**: The values that determine the slope and intercept of the linear function used to make predictions.
+
+### Topics Covered
+
+* The workflow of a supervised learning algorithm ($Training\ Data \to Learning\ Algorithm \to Model\ f$)
+* The mathematical representation of linear regression with one variable
+* Distinguishing between actual targets ($y$) and predicted estimates ($\hat{y}$)
+* Introduction to upcoming concepts: Optional lab for straight-line functions and the fundamental role of the Cost Function
+
+### Standard Formula Representation
+
+* Linear regression function formula:
+
+$$f_{w,b}(x) = wx + b$$
+
+
+
+*(Often abbreviated simply as $f(x) = wx + b$)*
+* Prediction calculation:
+
+$$\hat{y} = f_{w,b}(x)$$
+
+
+
+### Notes
+
+* Supervised learning algorithms take both input features ($x$) and target outputs ($y$) from the training set to produce the model function $f$.
+* $y$ represents the true, actual target value from the dataset, whereas $\hat{y}$ represents the model's estimate, which may or may not equal the true value.
+* Linear functions (straight lines) serve as a simple foundation before progressing to complex non-linear models (curves/parabolas).
+* Constructing a **Cost Function** will be the next critical step to evaluate and adjust the parameters $w$ and $b$ to achieve the best fit for the data.
+
+  # Video 1.11: Cost Function Formula
+
+### Key Concepts
+
+* **Parameters ($w, b$)**: The variables of the model that can be adjusted during training to improve its predictions. $w$ controls the slope, and $b$ controls the y-intercept.
+* **Error**: The difference between the model's predicted output ($\hat{y}$) and the actual target value ($y$), computed as $(\hat{y} - y)$.
+* **Cost Function ($J(w, b)$)**: A quantitative measure that evaluates how well the model's predictions fit the training dataset overall.
+* **Squared Error Cost Function**: The standard cost function used for linear regression that averages the sum of squared errors across all training examples.
+
+### Topics Covered
+
+* How changing parameters $w$ and $b$ affects the straight-line prediction function $f(x)$
+* Mathematical construction of the error term for individual training examples
+* Formulation of the Mean Squared Error (MSE) cost function divided by $2m$
+
+### Standard Formula Representation
+
+* Model prediction for example $i$:
+
+$$\hat{y}^{(i)} = f_{w,b}(x^{(i)}) = w x^{(i)} + b$$
+
+
+* Squared Error Cost Function formula:
+
+$$J(w,b) = \frac{1}{2m} \sum_{i=1}^{m} \left( \hat{y}^{(i)} - y^{(i)} \right)^2$$
+
+
+* Expanded form:
+
+$$J(w,b) = \frac{1}{2m} \sum_{i=1}^{m} \left( f_{w,b}(x^{(i)}) - y^{(i)} \right)^2$$
+
+
+
+### Notes
+
+* Selecting $w = 0$ results in a horizontal line where predictions always equal the constant $b$.
+* The division by $m$ computes the average squared error across all $m$ training examples so that the cost value remains comparable regardless of dataset size.
+* The extra factor of $\frac{1}{2}$ in the denominator is added by convention to simplify mathematical derivatives in subsequent optimization steps.
+* The next video will explore visual intuitions behind how different values of $w$ and $b$ yield smaller or larger cost values $J(w, b)$.
