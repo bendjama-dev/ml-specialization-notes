@@ -275,3 +275,44 @@ $$J(w,b) = \frac{1}{2m} \sum_{i=1}^{m} \left( f_{w,b}(x^{(i)}) - y^{(i)} \right)
 * The division by $m$ computes the average squared error across all $m$ training examples so that the cost value remains comparable regardless of dataset size.
 * The extra factor of $\frac{1}{2}$ in the denominator is added by convention to simplify mathematical derivatives in subsequent optimization steps.
 * The next video will explore visual intuitions behind how different values of $w$ and $b$ yield smaller or larger cost values $J(w, b)$.
+
+# Video 1.12: Cost Function Intuition
+
+### Key Concepts
+
+* **Simplified Model**: A linear regression model where the parameter $b$ is set to $0$ ($f(x) = wx$), forcing the best-fit line to pass through the origin $(0,0)$.
+* **Cost Minimization**: The primary objective of training a machine learning model, which is finding the parameter value(s) that yield the smallest possible cost value $J$.
+* **Cost Function Geometry**: Plotting $J(w)$ against $w$ creates a U-shaped convex curve (parabola) where the global minimum corresponds to the optimal parameter $w$.
+
+### Topics Covered
+
+* Comparison of prediction function graphs ($f_w(x)$ vs $x$) and cost function graphs ($J(w)$ vs $w$)
+* Step-by-step mathematical evaluation of $J(w)$ for different parameter values ($w = 1$, $w = 0.5$, $w = 0$, $w = -0.5$)
+* Visual mapping from lines on the dataset plot to individual coordinate points on the cost function curve
+
+### Step-by-Step Cost Calculations ($m = 3$ dataset: $(1,1), (2,2), (3,3)$)
+
+* **When $w = 1$**:
+* Predictions match targets exactly ($f(x^{(i)}) = y^{(i)}$)
+* $J(1) = \frac{1}{2(3)} \left[ (0)^2 + (0)^2 + (0)^2 \right] = 0$ (Global Minimum)
+
+
+* **When $w = 0.5$**:
+* $J(0.5) = \frac{1}{2(3)} \left[ (0.5 - 1)^2 + (1 - 2)^2 + (1.5 - 3)^2 \right] = \frac{3.5}{6} \approx 0.58$
+
+
+* **When $w = 0$**:
+* $J(0) = \frac{1}{2(3)} \left[ (0 - 1)^2 + (0 - 2)^2 + (0 - 3)^2 \right] = \frac{14}{6} \approx 2.33$
+
+
+* **When $w = -0.5$**:
+* $J(-0.5) = \frac{1}{2(3)} \left[ (-0.5 - 1)^2 + (-1 - 2)^2 + (-1.5 - 3)^2 \right] \approx 5.25$
+
+
+
+### Notes
+
+* The horizontal axis of the cost function plot represents the parameter $w$, while the vertical axis represents the total cost value $J(w)$.
+* When the straight-line fit $f(x)$ passes closely through data points, the cost $J(w)$ is small; when the line deviates significantly, the cost increases rapidly.
+* The optimal parameter $w$ corresponds directly to the lowest point at the bottom of the $J(w)$ U-shaped curve.
+* The next video will expand this visualization from a 2D curve into 3D surface and contour plots for models using both parameters $w$ and $b$.
