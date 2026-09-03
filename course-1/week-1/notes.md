@@ -339,3 +339,277 @@ $$J(w,b) = \frac{1}{2m} \sum_{i=1}^{m} \left( f_{w,b}(x^{(i)}) - y^{(i)} \right)
 * All points lying on the same ellipse line in a contour plot yield the exact same cost value $J(w, b)$, even though their underlying parameter values $w$ and $b$ differ.
 * The center of the innermost concentric oval on a contour plot represents the minimum cost $J(w, b)$, indicating the optimal straight-line fit for the training set.
 * The next video will walk through specific choices of parameters $w$ and $b$ on contour plots to show how they affect line fitting on data.
+
+# Video 1.14: Cost Function Visual Examples
+
+### Key Concepts
+
+* **Contour Plot Mapping**: Visually connecting specific parameter pairs $(w, b)$ represented as points on a contour plot directly to the corresponding line fits $f(x) = wx + b$ on a scatter plot.
+* **Cost Distance & Quality of Fit**: Parameter pairs located far from the center of the contour plot's innermost ellipse produce poor fits with large errors. Parameter pairs near the center yield low cost $J(w, b)$ and accurately model the data.
+* **Interactive Visualization Tools**: Dynamic 3D surface plots and interactive contour plots (available in Jupyter Notebook labs) allowing real-time parameter selection and surface rotation.
+
+### Topics Covered
+
+* Visual evaluation of multiple parameter choices $(w, b)$:
+* **Negative slope & high intercept** ($w \approx -0.15, b \approx 800$): Poor fit, high cost far from minimum.
+* **Flat line** ($w = 0, b \approx 360$): Poor fit, moderate cost.
+* **Optimal fit**: Line passing closely through data points, corresponding to a point near the center of the innermost ellipse on the contour plot.
+
+
+* Transitioning from manual parameter visual inspection to automated optimization algorithms.
+
+### Notes
+
+* Evaluating linear models manually via contour plots is impractical for real-world applications or high-dimensional models.
+* **Gradient Descent** will be introduced as the fundamental algorithm to automatically calculate and find parameter values $w$ and $b$ that minimize the cost function $J(w, b)$.
+* Gradient descent and its variants form the algorithmic backbone for training linear regression as well as advanced neural networks and modern AI systems.
+* The next video will cover the details and mathematical formulation of the **Gradient Descent** algorithm.
+
+# Video 1.15: Gradient Descent Overview
+
+### Key Concepts
+
+* **Gradient Descent**: An optimization algorithm used to find the parameters ($w$ and $b$) that minimize a cost function $J(w, b)$ by iteratively stepping in the direction of steepest descent.
+* **Steepest Descent**: The direction of fastest decrease in the cost function from a given point on the surface plot.
+* **Local Minima**: Points on the cost surface where the function reaches a minimum relative to nearby points; algorithms may settle into different local minima depending on the starting point.
+
+### Topics Covered
+
+* Generalizing gradient descent beyond linear regression to $n$-parameter cost functions $J(w_1, w_2, \dots, w_n, b)$
+* Intuitive analogy of navigating down a hilly landscape to reach the bottom of a valley
+* How initial values of $w$ and $b$ dictate the final local minimum reached on non-convex cost surfaces (such as those in deep learning)
+
+### Notes
+
+* For linear regression using a squared error cost function, the cost surface is always a convex bowl shape, guaranteeing a single global minimum regardless of starting values.
+* For complex models like deep neural networks, the cost surface may contain multiple local minima, meaning different initializations can lead gradient descent to different local minimum results.
+* Common initial parameter values for linear regression start at $w = 0$ and $b = 0$.
+* The next video will cover the exact mathematical expressions required to implement the gradient descent algorithm in code.
+
+# Video 1.16: Implementing Gradient Descent
+
+### Key Concepts
+
+* **Assignment Operator (`=`)**: Indicates storing a calculated value into a variable rather than making a mathematical truth assertion.
+* **Learning Rate ($\alpha$)**: A positive constant (typically between $0$ and $1$) that controls the size of the step taken downhill during each update.
+* **Derivative Term ($\frac{\partial}{\partial w} J(w,b)$)**: Indicates the direction of steepest descent and, in combination with the learning rate, determines the magnitude of the update step.
+* **Simultaneous Updates**: Updating all model parameters simultaneously at each step using their values from the previous iteration.
+
+### Topics Covered
+
+* Mathematical definition of parameter update equations for $w$ and $b$
+* Clarifying assignment notation versus equality tests in programming
+* Importance and mechanics of implementing simultaneous parameter updates
+
+### Gradient Descent Algorithm Equations
+
+* **Parameter Update Rules**:
+
+$$w = w - \alpha \frac{\partial}{\partial w} J(w,b)$$
+
+
+$$b = b - \alpha \frac{\partial}{\partial b} J(w,b)$$
+
+
+
+### Correct vs. Incorrect Implementation
+
+* **Correct Implementation (Simultaneous Update)**
+* **Code Logic**:
+```python
+temp_w = w - alpha * dj_dw
+temp_b = b - alpha * dj_db
+w = temp_w
+b = temp_b
+
+```
+
+
+* **Description**: Calculates both updates using the original $w$ and $b$ values before assigning the new values to the parameters.
+
+
+* **Incorrect Implementation (Non-Simultaneous Update)**
+* **Code Logic**:
+```python
+w = w - alpha * dj_dw
+b = b - alpha * dj_db
+
+```
+
+
+* **Description**: Uses the newly updated $w$ when evaluating the derivative for $b$, which alters the algorithm's mathematical properties.
+
+
+
+### Notes
+
+* Simultaneous updates ensure that the cost derivative calculations for all parameters rely on the exact same parameter state from the previous iteration.
+* Gradient descent continues iteratively until convergence, where parameter values stabilize and no longer change significantly.
+* The next video will dive into the calculus derivative term $\frac{\partial}{\partial w} J(w,b)$ to build visual intuition without requiring prior calculus experience.
+
+# Video 1.17: Gradient Descent Intuition
+
+### Key Concepts
+
+* **Derivative Term ($\frac{d}{dw}J(w)$)**: Represents the slope of the tangent line touching the cost function $J(w)$ at a specific value of $w$, indicating both the direction and magnitude of the update.
+* **Tangent Line & Slope**: A straight line drawn at a point on the curve. Its slope is determined by calculating $\frac{\text{height}}{\text{width}}$ ($\frac{\text{change in } J}{\text{change in } w}$).
+* **Parameter Movement**: The mathematical sign of the derivative dictates whether $w$ increases or decreases during gradient descent to approach the minimum cost.
+
+### Topics Covered
+
+* Simplifying gradient descent to a single-parameter model $J(w)$ to analyze derivative behavior on a 2D curve
+* Behavior of gradient descent when initialized to the right of the global minimum
+* Behavior of gradient descent when initialized to the left of the global minimum
+
+### Parameter Update Scenarios
+
+* **Positive Slope (Starting to the Right of Minimum)**
+* **Tangent Line Direction**: Slopes up and to the right.
+* **Derivative Sign**: Positive ($\frac{d}{dw}J(w) > 0$).
+* **Mathematical Result**: $w = w - \alpha \cdot (\text{positive number})$, resulting in a smaller value of $w$.
+* **Directional Shift**: Moves $w$ to the left along the horizontal axis, decreasing the cost $J(w)$ toward the minimum.
+
+
+* **Negative Slope (Starting to the Left of Minimum)**
+* **Tangent Line Direction**: Slopes down and to the right.
+* **Derivative Sign**: Negative ($\frac{d}{dw}J(w) < 0$).
+* **Mathematical Result**: $w = w - \alpha \cdot (\text{negative number}) = w + \alpha \cdot (\text{positive number})$, resulting in a larger value of $w$.
+* **Directional Shift**: Moves $w$ to the right along the horizontal axis, decreasing the cost $J(w)$ toward the minimum.
+
+
+
+### Notes
+
+* Regardless of where gradient descent is initialized relative to the minimum, the derivative sign combined with the subtraction in the update equation ensures $w$ always steps toward the minimum.
+* The term $\frac{d}{dw}$ represents a derivative, which is technically a partial derivative ($\frac{\partial}{\partial w}$) when extended to multi-variable cost functions.
+* The next video will examine the learning rate parameter $\alpha$, exploring the effects of choosing values that are too small or too large.
+
+# Video 1.18: Learning Rate
+
+### Key Concepts
+
+* **Learning Rate ($\alpha$)**: The hyperparameter that dictates the size of the update step toward the minimum cost during each iteration of gradient descent.
+* **Underfitting / Slow Convergence**: The result of setting $\alpha$ too small, requiring an excessive number of iterations to reach the minimum.
+* **Overshooting / Divergence**: The result of setting $\alpha$ too large, causing parameter steps to bounce over the minimum, increase the cost, and fail to converge.
+* **Fixed Learning Rate Convergence**: The ability of gradient descent to reach a local minimum with a constant $\alpha$, because the slope (derivative) naturally decreases as the parameter approaches the minimum.
+
+### Topics Covered
+
+* Impacts of choosing an improperly scaled learning rate $\alpha$ (too small vs. too large)
+* Mathematical evaluation of gradient descent updates when initialized at a local minimum
+* How changing derivative magnitudes automatically adjust step size even when $\alpha$ remains constant
+
+### Learning Rate Effects Summary
+
+* **Too Small Learning Rate ($\alpha$)**
+* **Step Size**: Extremely small, minuscule baby steps.
+* **Algorithm Behavior**: Gradient descent works and decreases cost $J$, but progresses extremely slowly.
+* **Outcome**: Requires a very large number of iterations to reach the minimum.
+
+
+* **Too Large Learning Rate ($\alpha$)**
+* **Step Size**: Oversized steps that cross over the minimum.
+* **Algorithm Behavior**: Cost $J$ increases or oscillates, getting further away from the valley.
+* **Outcome**: Fails to converge; may overshoot and diverge.
+
+
+* **Initialization at a Local Minimum**
+* **Derivative Value**: Slope of the tangent line is zero ($\frac{d}{dw}J(w) = 0$).
+* **Update Equation**: $w = w - \alpha \cdot (0) \implies w = w$.
+* **Outcome**: Parameters remain completely unchanged, locking the solution at the local minimum.
+
+
+
+### Notes
+
+* As $w$ approaches a local minimum, the slope of the cost curve gets flatter, automatically making the derivative smaller.
+* Because the derivative term shrinks near the minimum, the step size $(\alpha \cdot \text{derivative})$ automatically decreases without needing to manually reduce $\alpha$ over time.
+* Combining gradient descent with the mean squared error cost function creates the complete training process for linear regression.
+* The next video will apply gradient descent directly to the linear regression model.
+
+# Video 1.19: Gradient Descent for Linear Regression
+
+### Key Concepts
+
+* **Convex Function**: A bowl-shaped function that has a single global minimum and no other local minima. The squared error cost function for linear regression is guaranteed to be convex.
+* **Global Minimum**: The absolute lowest possible value of the cost function across the entire parameter space.
+* **Mathematical Simplification**: The factor of $\frac{1}{2}$ added to the cost function definition simplifies the partial derivative calculus by canceling out the exponent of $2$.
+
+### Topics Covered
+
+* Derivation and mathematical formulas for the partial derivatives of the squared error cost function
+* Combining the linear regression model $f_{w,b}(x) = wx + b$ with the gradient descent algorithm
+* Convexity guaranteed by the squared error cost function, eliminating the risk of getting trapped in suboptimal local minima
+
+### Derivative Formulas
+
+* **Derivative with respect to $w$**:
+
+$$\frac{\partial}{\partial w} J(w,b) = \frac{1}{m} \sum_{i=1}^{m} \left( f_{w,b}(x^{(i)}) - y^{(i)} \right) x^{(i)}$$
+
+
+* **Derivative with respect to $b$**:
+
+$$\frac{\partial}{\partial b} J(w,b) = \frac{1}{m} \sum_{i=1}^{m} \left( f_{w,b}(x^{(i)}) - y^{(i)} \right)$$
+
+
+
+### Complete Gradient Descent Algorithm for Linear Regression
+
+Repeat until convergence:
+
+* **Update $w$**:
+
+$$w = w - \alpha \left[ \frac{1}{m} \sum_{i=1}^{m} \left( f_{w,b}(x^{(i)}) - y^{(i)} \right) x^{(i)} \right]$$
+
+
+* **Update $b$**:
+
+$$b = b - \alpha \left[ \frac{1}{m} \sum_{i=1}^{m} \left( f_{w,b}(x^{(i)}) - y^{(i)} \right) \right]$$
+
+
+
+*(Note: Parameters $w$ and $b$ must be updated simultaneously at each iteration.)*
+
+### Notes
+
+* Because the mean squared error cost function is convex, gradient descent will always converge to the single global minimum provided an appropriate learning rate $\alpha$ is chosen.
+* The next video will showcase this complete algorithm running in action to fit a straight line to training data.
+
+# Video 1.20: Running Gradient Descent
+
+### Key Concepts
+
+* **Batch Gradient Descent**: A variant of gradient descent where each update step evaluates the entire dataset (all $m$ training examples) when calculating the cost derivatives ($\sum_{i=1}^{m}$).
+* **Trajectory to Global Minimum**: As iterations proceed, parameter pairs $(w, b)$ follow a continuous path across the contour plot toward the center of the innermost ellipse, progressively decreasing the cost $J(w, b)$.
+* **Predictive Modeling**: Once gradient descent converges to optimal parameter values, the resulting function $f(x) = wx + b$ can be used for inference (e.g., predicting house prices based on square footage).
+
+### Topics Covered
+
+* Visualizing gradient descent step-by-step from initialization ($w = -0.1, b = 900$) to convergence on contour and surface plots
+* Definition and significance of "Batch" gradient descent compared to mini-batch approaches
+* Transitioning from single-variable linear regression to multi-feature and non-linear regression models in upcoming sections
+
+### Summary of Parameter Trajectory & Fit Progress
+
+* **Initialization**: $w = -0.1, b = 900$
+* **Line Fit**: Slopes downward, providing a poor fit to the training set.
+* **Cost Position**: Far from the minimum on the outer regions of the contour plot.
+
+
+* **Intermediate Iterations**
+* **Line Fit**: Adjusts position and slope with each update step to align closer to the data points.
+* **Cost Position**: Moves inward across concentric contour ellipses toward the center.
+
+
+* **Convergence (Global Minimum)**
+* **Line Fit**: Straight line through the training points, minimizing total squared errors.
+* **Cost Position**: Reaches the exact center of the innermost ellipse on the contour plot.
+
+
+
+### Notes
+
+* The term "batch" reflects that every step accounts for all $m$ examples in the training set during derivative summation.
+* Single-feature linear regression provides the foundation for multi-variable models (handling multiple input features simultaneously) and non-linear curve fitting.
+* Practice quizzes and optional Jupyter Notebook labs provide hands-on experience with plotting cost reduction over training iterations and evaluating converged parameter states.
