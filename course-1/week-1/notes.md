@@ -316,3 +316,26 @@ $$J(w,b) = \frac{1}{2m} \sum_{i=1}^{m} \left( f_{w,b}(x^{(i)}) - y^{(i)} \right)
 * When the straight-line fit $f(x)$ passes closely through data points, the cost $J(w)$ is small; when the line deviates significantly, the cost increases rapidly.
 * The optimal parameter $w$ corresponds directly to the lowest point at the bottom of the $J(w)$ U-shaped curve.
 * The next video will expand this visualization from a 2D curve into 3D surface and contour plots for models using both parameters $w$ and $b$.
+
+# Video 1.13: Cost Function Visualizations
+
+### Key Concepts
+
+* **3D Surface Plot**: A three-dimensional visualization of the cost function $J(w, b)$ where $w$ and $b$ form the horizontal axes and the height represents the cost value $J$.
+* **Contour Plot**: A two-dimensional representation of a 3D cost function created by taking horizontal slices of the surface, where each ellipse (oval) represents a set of points with identical cost values $J(w, b)$.
+* **Global Minimum**: The bottom-most point of the bowl-shaped surface (or center of the innermost ellipse on a contour plot) where the cost $J(w, b)$ is minimized.
+
+### Topics Covered
+
+* Re-introducing parameter $b$ alongside $w$ to evaluate the full linear regression model $f_{w,b}(x) = wx + b$
+* Visualizing cost functions with two parameters as 3D bowl-shaped (or hammock-shaped) surfaces
+* Understanding contour plots using the analogy of topographical maps (e.g., Mount Fuji)
+* Connecting individual points on a contour plot $(w, b)$ to their corresponding prediction lines $f(x)$ on a dataset
+
+### Notes
+
+* Adding parameter $b$ expands the 2D U-shaped parabola into a 3D bowl-shaped surface.
+* Any single point on the 3D surface or 2D contour plot corresponds to a specific pair of parameters $(w, b)$ and its resulting line fit $f(x)$.
+* All points lying on the same ellipse line in a contour plot yield the exact same cost value $J(w, b)$, even though their underlying parameter values $w$ and $b$ differ.
+* The center of the innermost concentric oval on a contour plot represents the minimum cost $J(w, b)$, indicating the optimal straight-line fit for the training set.
+* The next video will walk through specific choices of parameters $w$ and $b$ on contour plots to show how they affect line fitting on data.
