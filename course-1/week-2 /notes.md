@@ -1,6 +1,6 @@
-#Week 2: Regression with Multiple Input Variables
+# Week 2: Regression with Multiple Input Variables
 
-##Video 2.1: Multiple Features
+## Video 2.1: Multiple Features
 
 ### Key Concepts
 
@@ -37,7 +37,7 @@
 * Using vector notation simplifies complex mathematical formulas and enables cleaner, more efficient code implementations via linear algebra.
 * The next video will introduce vectorization, a computing technique used to implement vector operations efficiently in code.
 
-##Video 2.2: Vectorization
+## Video 2.2: Vectorization
 
 ### Key Concepts
 
