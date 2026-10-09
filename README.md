@@ -10,7 +10,10 @@
 - [Week 3: Classification with Logistic Regression](./course-1/week-3/)
 
 ### Course 2: Advanced Learning Algorithms
-Coming soon...
+- [Week 1: Neural Networks](./course-1/week-1/)
+- [Week 2: Neural Networks training](./course-1/week-2/)
+- [Week 3: Advice for applying machine learning](./course-1/week-3/)
+- [Week 4: Decision trees](./course-1/week-3/)
 
 ### Course 3: Unsupervised Learning, Recommenders, Reinforcement Learning
 Coming soon...
