@@ -112,3 +112,53 @@
 * The term "ReLU" stands for Rectified Linear Unit, a historical naming convention from deep learning literature.
 * Using alternative activation functions like ReLU allows neural networks to model diverse types of data distributions beyond strict $0$ to $1$ probabilities.
 * The next video will discuss how to choose between these different activation functions for hidden layers versus output layers.
+
+## Video 2.4: Choosing Activation Functions
+
+### Key Concepts
+
+* **Output Layer Activation Selection**: Choosing the activation function for the final layer based on the nature of the target variable $y$ (binary classification vs. regression tasks).
+* **Hidden Layer Default Choice**: Using the **ReLU** activation function as the standard choice for hidden layers due to computational efficiency and mitigation of flat gradient regions.
+* **TensorFlow Implementation**: Configuring specific activation functions per layer using parameters like `activation='relu'`, `activation='sigmoid'`, or `activation='linear'`.
+
+### Topics Covered
+
+* Guidelines for selecting output layer activation functions based on ground-truth labels ($y$)
+* Why ReLU has become the dominant choice for hidden layers compared to historical sigmoid usage
+* Overview of alternative advanced activation functions (LeakyReLU, tanh, swish)
+* Introduction to the question of why activation functions are necessary in the first place
+
+### Output Layer Activation Recommendations
+
+* **Binary Classification ($y \in \{0, 1\}$)**
+* **Recommended Activation**: Sigmoid
+* **Reasoning**: Predicts a probability value between $0$ and $1$.
+
+
+* **Regression (Unconstrained target: $y$ can be positive or negative)**
+* **Recommended Activation**: Linear
+* **Reasoning**: Allows network outputs to span all real numbers from negative to positive infinity.
+
+
+* **Regression (Non-negative target: $y \ge 0$, e.g., house prices)**
+* **Recommended Activation**: ReLU
+* **Reasoning**: Ensures model outputs remain non-negative (zero or positive).
+
+
+
+### Hidden Layers: ReLU vs. Sigmoid
+
+* **ReLU Advantages**
+* Faster to compute computationally (requires only `max(0, z)` without exponential operations).
+* Only goes flat on one side (left half), whereas sigmoid flattens on both sides, which can severely slow down gradient descent learning.
+
+
+* **Best Practice**
+* Use **ReLU** as the default choice for all hidden layers in modern deep learning applications.
+
+
+
+### Notes
+
+* While other activations like LeakyReLU, tanh, or swish exist and can occasionally offer minor performance boosts, ReLU and sigmoid cover the vast majority of practical use cases.
+* The next video will explore why non-linear activation functions are mathematically indispensable to neural networks.
