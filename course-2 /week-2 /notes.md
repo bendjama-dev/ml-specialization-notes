@@ -71,3 +71,44 @@
 * Understanding the internal mechanics of training (forward propagation, loss computation, and backpropagation) provides a crucial conceptual mental model for debugging when models fail to perform as expected.
 * While modern engineers rely heavily on mature libraries like TensorFlow and PyTorch rather than writing custom code from scratch, core theoretical knowledge remains essential for troubleshooting.
 * The next video will explore alternative activation functions to replace the standard sigmoid function and enhance neural network performance.
+
+## Video 2.3: Alternative Activation Functions
+
+### Key Concepts
+
+* **Rectified Linear Unit (ReLU)**: An activation function defined as $g(z) = \max(0, z)$, which outputs $0$ for negative inputs and passes positive values unchanged, allowing activations to take on any non-negative value.
+* **Linear Activation Function**: An activation function defined as $g(z) = z$ (effectively behaving as if no activation function is applied).
+* **Activation Function Choices**: The flexibility to use different mathematical functions per layer to model continuous, non-binary phenomena (such as customer awareness levels).
+
+### Topics Covered
+
+* Limitations of binary/sigmoid activations for continuous, non-negative quantities (e.g., measuring buyer awareness from zero to very large values)
+* Definition, mathematical formula, and graphical shape of the ReLU activation function
+* Overview of the three primary activation functions: Sigmoid, ReLU, and Linear
+
+### Common Activation Functions Compared
+
+* **Sigmoid Activation Function**
+* **Formula**: $g(z) = \frac{1}{1 + e^{-z}}$
+* **Range**: Strictly between $0$ and $1$.
+* **Use Case**: Best for binary classification output layers where predictions represent probabilities.
+
+
+* **ReLU (Rectified Linear Unit)**
+* **Formula**: $g(z) = \max(0, z)$
+* **Range**: $0$ to positive infinity ($[0, \infty)$).
+* **Use Case**: Highly popular choice for hidden layers because it avoids flattening out for large positive values, speeding up training.
+
+
+* **Linear Activation Function**
+* **Formula**: $g(z) = z$
+* **Range**: Negative infinity to positive infinity ($-\infty$ to $+\infty$).
+* **Use Case**: Sometimes used in output layers for regression tasks when predicted values can be negative or arbitrarily large.
+
+
+
+### Notes
+
+* The term "ReLU" stands for Rectified Linear Unit, a historical naming convention from deep learning literature.
+* Using alternative activation functions like ReLU allows neural networks to model diverse types of data distributions beyond strict $0$ to $1$ probabilities.
+* The next video will discuss how to choose between these different activation functions for hidden layers versus output layers.
