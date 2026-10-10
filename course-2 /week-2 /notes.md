@@ -1,4 +1,6 @@
-# Course 2, Week 2 - Video 2.1: Training a Neural Network
+# Week 2: Neural Network training
+
+## Video 2.1: Training a Neural Network
 
 ### Key Concepts
 
