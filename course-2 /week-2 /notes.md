@@ -162,3 +162,36 @@
 
 * While other activations like LeakyReLU, tanh, or swish exist and can occasionally offer minor performance boosts, ReLU and sigmoid cover the vast majority of practical use cases.
 * The next video will explore why non-linear activation functions are mathematically indispensable to neural networks.
+
+
+## Video 2.5: Why Neural Networks Need Activation Functions
+
+### Key Concepts
+
+* **Linear Collapse**: The mathematical principle where stacking multiple layers using only linear activation functions collapses the entire multi-layer network into a single equivalent linear or logistic regression model.
+* **Need for Non-Linearity**: Non-linear activation functions (like ReLU or sigmoid) are essential for allowing neural networks to learn complex, non-linear relationships and features beyond simple straight lines.
+
+### Topics Covered
+
+* Demonstration of why using linear activation functions everywhere renders a deep neural network mathematically equivalent to standard linear regression.
+* Explanation of how a network with linear hidden layers and a sigmoid output layer collapses into standard logistic regression.
+* The rule of thumb for hidden layer design (avoid linear activations in hidden layers; use ReLU instead).
+* Preview of multi-class classification (predicting more than two categories) in the upcoming video.
+
+### Mathematical Collapse of Linear Networks
+
+* **Single/Multi-Layer Linear Network**
+* If $g(z) = z$ for all hidden and output units, a network with sequential linear operations (e.g., $a_2 = w_2(w_1 x + b_1) + b_2$) simplifies algebraically to a single linear combination: $w x + b$.
+* **Result**: The network loses all multi-layer depth advantages and behaves exactly like basic linear regression.
+
+
+* **Linear Hidden Layers + Sigmoid Output**
+* If hidden layers use linear activations but the final output layer uses a sigmoid function, the entire model collapses into standard **logistic regression**.
+* **Result**: The network cannot learn complex hierarchical features.
+
+
+
+### Notes
+
+* Non-linear activation functions (such as ReLU) provide the crucial twist needed to unlock the expressive power of deep neural networks.
+* The next video will introduce multi-class classification, extending classification beyond binary outcomes (0 or 1) to multiple categories.
